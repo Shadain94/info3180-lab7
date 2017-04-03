@@ -1,33 +1,43 @@
 {% extends "base.html" %}
 
+{% block js %}
+
+
+<script>
+/* global angular */
+var app = angular.module('myApp', []);
+app.controller('imageCtrl', function($scope, $http) {
+    $http.get("https://info3180-lab7-shadain94.c9users.io/api/thumbnail").then(function(response) {
+        $scope.myData = response.data.thumbnails;
+        
+    });
+});
+</script>
+{% endblock %}
+
 
 {% block main %}
 
-<div ng-app="myApp" ng-controller="imageCtrl"> 
-
-
-  <img src=" myData[0]"> </img>
+<div>
+    {% for b in links_array %}
     
+    <img src="{{b}}"></img>
+    
+    
+    {% endfor %}
+    
+</div>
+
+<div ng-app="myApp" ng-controller="imageCtrl"> 
+  
+   
+ 
 
 
 </div>
 
 
 
-{% block js %}
-
-<script>
-var app = angular.module('myApp', []);
-app.controller('imageCtrl', function($scope, $http) {
-    $http.get("https://info3180-lab7-shadain94.c9users.io/api/thumbnail").then(function(response) {
-        $scope.myData = response.data.thumbnails;
-    });
-});
-</script>
-
-
-
-{% endblock%}
 
 
 {% endblock %}
