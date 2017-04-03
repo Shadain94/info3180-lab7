@@ -29,6 +29,12 @@ def links():
 
     return jsonify(error= None , message='Success', thumbnails= a[0:-1])
     
+@app.route('/thumbnails/view')
+def Images():
+    """Render website's images page."""
+    return render_template('images_rendered.html',links_array=a)
+    
+    
 
 
 ###
