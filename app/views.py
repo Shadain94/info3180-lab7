@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import requests
 import urlparse
 from imagegetter import a
+ 
 
 ###
 # Routing for your application.
@@ -26,7 +27,7 @@ def home():
 def links():
     """Render website's thumbnail page."""
 
-    return jsonify(error= {} , message='Success', thumbnails= a[0:-1])
+    return jsonify(error= None , message='Success', thumbnails= a[0:-1])
     
 
 
